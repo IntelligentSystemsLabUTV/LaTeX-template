@@ -1,0 +1,61 @@
+{
+  // LaTeX environment
+  "name": "latex-dev",
+  "dockerComposeFile": [
+      "docker-compose.yml"
+  ],
+  // Only start this service
+  "service": "latex-dev",
+  "runServices": [
+      "latex-dev"
+  ],
+  // Stop container if VS Code is shut down
+  "shutdownAction": "stopCompose",
+  "extensions": [
+      "yzhang.markdown-all-in-one",
+      "gruntfuggly.todo-tree",
+      "eamodio.gitlens",
+      "davidanson.vscode-markdownlint",
+      "aaron-bond.better-comments",
+      "jeff-hykin.better-syntax",
+      "james-yu.latex-workshop",
+      "shardulm94.trailing-spaces",
+      "vscode-icons-team.vscode-icons",
+      "hediet.vscode-drawio",
+  ],
+  "settings": {
+      // Zsh
+      "terminal.integrated.defaultProfile.linux": "zsh",
+      "terminal.integrated.profiles.linux": {
+          "zsh": {
+              "path": "/bin/zsh"
+          },
+      },
+      // LaTeX
+      "files.eol": "\n",
+      "latex-workshop.latex.texDirs": [
+          "%DIR%/source"
+      ],
+      "latex-workshop.view.pdf.viewer": "tab",
+      "latex-workshop.latex.outDir": "%DIR%/build",
+      "latex-workshop.synctex.afterBuild.enabled": true,
+      "latex-workshop.chktex.enabled": true,
+      "latex-workshop.latex.clean.subfolder.enabled": true,
+      "latex-workshop.latex.autoClean.run": "onBuilt",
+      "latex-workshop.latex.autoBuild.run": "never",
+      "editor.formatOnSave": true,
+      "files.associations": {
+          "*.tex": "latex"
+      },
+      "latex-workshop.latexindent.args": [
+          "-c",
+          "%DIR%/",
+          "%TMPFILE%",
+          "-y=\"defaultIndent: '%INDENT%',onlyOneBackUp: 1\"",
+      ]
+  },
+  // Start the VS Code instance in the container's workspace
+  "workspaceFolder": "/home/latex/workspace",
+  // Creates a sleeping process that VSC uses to stop the container
+  "overrideCommand": true
+}
