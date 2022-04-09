@@ -43,6 +43,8 @@
 ## Build tool directories for auxiliary files
 # latexrun
 latex.out/
+# Inkscape
+svg-inkscape/
 
 ## Auxiliary and intermediate files from other packages:
 # algorithms
@@ -276,5 +278,5 @@ TSWLatexianTemp*
 *.lpz
 
 ## Build results
-build/**
-!build/*.pdf
+build/*
+!build/.gitkeep
