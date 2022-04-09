@@ -2,57 +2,147 @@
   // LaTeX environment
   "name": "latex-dev",
   "dockerComposeFile": [
-      "docker-compose.yml"
+    "docker-compose.yml"
   ],
   // Only start this service
   "service": "latex-dev",
   "runServices": [
-      "latex-dev"
+    "latex-dev"
   ],
   // Stop container if VS Code is shut down
   "shutdownAction": "stopCompose",
   "extensions": [
-      "yzhang.markdown-all-in-one",
-      "gruntfuggly.todo-tree",
-      "eamodio.gitlens",
-      "davidanson.vscode-markdownlint",
-      "aaron-bond.better-comments",
-      "jeff-hykin.better-syntax",
-      "james-yu.latex-workshop",
-      "shardulm94.trailing-spaces",
-      "vscode-icons-team.vscode-icons",
-      "hediet.vscode-drawio",
+    "yzhang.markdown-all-in-one",
+    "gruntfuggly.todo-tree",
+    "eamodio.gitlens",
+    "davidanson.vscode-markdownlint",
+    "aaron-bond.better-comments",
+    "jeff-hykin.better-syntax",
+    "james-yu.latex-workshop",
+    "shardulm94.trailing-spaces",
+    "vscode-icons-team.vscode-icons",
+    "hediet.vscode-drawio",
   ],
   "settings": {
-      // Zsh
-      "terminal.integrated.defaultProfile.linux": "zsh",
-      "terminal.integrated.profiles.linux": {
-          "zsh": {
-              "path": "/bin/zsh"
-          },
+    // Always wrap long lines
+    "editor.wordWrap": "on",
+    // Zsh
+    "terminal.integrated.defaultProfile.linux": "zsh",
+    "terminal.integrated.profiles.linux": {
+      "zsh": {
+        "path": "/bin/zsh"
       },
-      // LaTeX
-      "files.eol": "\n",
-      "latex-workshop.latex.texDirs": [
-          "%DIR%/source"
-      ],
-      "latex-workshop.view.pdf.viewer": "tab",
-      "latex-workshop.latex.outDir": "%DIR%/build",
-      "latex-workshop.synctex.afterBuild.enabled": true,
-      "latex-workshop.chktex.enabled": true,
-      "latex-workshop.latex.clean.subfolder.enabled": true,
-      "latex-workshop.latex.autoClean.run": "onBuilt",
-      "latex-workshop.latex.autoBuild.run": "never",
-      "editor.formatOnSave": true,
-      "files.associations": {
-          "*.tex": "latex"
+    },
+    // LaTeX Workshop
+    "files.eol": "\n",
+    "latex-workshop.latex.texDirs": [
+      "%DIR%/source",
+      "%DIR%/sections",
+      "%DIR%/subsections",
+      "%DIR%/subsubsections",
+      "%DIR%/chapters"
+    ],
+    "latex-workshop.view.pdf.viewer": "tab",
+    "latex-workshop.view.pdf.tab.editorGroup": "right",
+    "latex-workshop.view.pdf.zoom": "page-width",
+    "latex-workshop.hover.citation.enabled": true,
+    "latex-workshop.hover.ref.enabled": true,
+    "latex-workshop.hover.command.enabled": true,
+    "latex-workshop.latex.outDir": "build",
+    "latex-workshop.synctex.afterBuild.enabled": true,
+    "latex-workshop.chktex.enabled": true,
+    "latex-workshop.latex.clean.subfolder.enabled": false,
+    "latex-workshop.latex.autoBuild.cleanAndRetry.enabled": false,
+    "latex-workshop.latex.autoClean.run": "onBuilt",
+    "latex-workshop.latex.clean.fileTypes": [
+      "*.blg",
+      "*.idx",
+      "*.ind",
+      "*.lof",
+      "*.lot",
+      "*.out",
+      "*.toc",
+      "*.acn",
+      "*.acr",
+      "*.alg",
+      "*.glg",
+      "*.glo",
+      "*.gls",
+      "*.fls",
+      "*.fdb_latexmk",
+      "*.snm",
+      "*.synctex(busy)",
+      "*.synctex.gz(busy)",
+      "*.nav"
+    ],
+    "latex-workshop.latex.autoBuild.run": "never",
+    "latex-workshop.latex.build.clearLog.everyRecipeStep.enabled": false,
+    "files.associations": {
+      "*.tex": "latex"
+    },
+    "latex-workshop.latexindent.args": [
+      "-c",
+      "%DIR%/",
+      "%TMPFILE%",
+      "-y=\"defaultIndent: '%INDENT%',onlyOneBackUp: 1\"",
+    ],
+    "latex-workshop.latex.bibDirs": [
+      "%DIR"
+    ],
+    "latex-workshop.latex.tools": [
+      {
+        "name": "latexmk",
+        "command": "latexmk",
+        "args": [
+          "-synctex=1",
+          "-interaction=nonstopmode",
+          "-file-line-error",
+          "-pdf",
+          "-shell-escape",
+          "-outdir=%OUTDIR%",
+          "%DOC%"
+        ],
+        "env": {}
       },
-      "latex-workshop.latexindent.args": [
-          "-c",
-          "%DIR%/",
-          "%TMPFILE%",
-          "-y=\"defaultIndent: '%INDENT%',onlyOneBackUp: 1\"",
-      ]
+      {
+        "name": "pdflatex",
+        "command": "pdflatex",
+        "args": [
+          "-synctex=1",
+          "-interaction=nonstopmode",
+          "-file-line-error",
+          "-shell-escape",
+          "-output-directory=%OUTDIR%",
+          "%DOC%"
+        ],
+        "env": {}
+      },
+      {
+        "name": "bibtex",
+        "command": "bibtex",
+        "args": [
+          "%OUTDIR%/%DOCFILE%"
+        ],
+        "env": {}
+      }
+    ],
+    "latex-workshop.latex.recipes": [
+      {
+        "name": "latexmk 🔃",
+        "tools": [
+          "latexmk"
+        ]
+      },
+      {
+        "name": "pdflatex ➞ bibtex ➞ pdflatex × 2",
+        "tools": [
+          "pdflatex",
+          "bibtex",
+          "pdflatex",
+          "pdflatex"
+        ]
+      }
+    ]
   },
   // Start the VS Code instance in the container's workspace
   "workspaceFolder": "/home/latex/workspace",
