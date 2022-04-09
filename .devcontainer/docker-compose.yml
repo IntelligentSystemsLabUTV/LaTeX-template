@@ -1,4 +1,4 @@
-# Latex environment containers specification.
+# LaTeX environment container specification.
 #
 # Alessandro Tenaglia <alessandro.tenaglia42@gmail.com>
 # Roberto Masocco <robmasocco@gmail.com>
@@ -15,7 +15,6 @@ services:
       TERM: xterm-256color
       DISPLAY:
       SHELL: /usr/bin/zsh
-    privileged: true
     user: latex
     stdin_open: false
     tty: true
