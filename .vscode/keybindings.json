@@ -1,0 +1,30 @@
+// Local overrides for default keybindings
+[
+  {
+    // Applies \textbf to the current selection
+    "key": "ctrl+alt+G",
+    "command": "editor.action.insertSnippet",
+    "when": "editorLangId == latex && editorTextFocus",
+    "args": {
+      "snippet": "\\textbf{${TM_SELECTED_TEXT}$0}"
+    }
+  },
+  {
+    // Applies \textit to the current selection
+    "key": "ctrl+alt+I",
+    "command": "editor.action.insertSnippet",
+    "when": "editorLangId == latex && editorTextFocus",
+    "args": {
+      "snippet": "\\textit{${TM_SELECTED_TEXT}$0}"
+    }
+  },
+  {
+    // Applies \emph to the current selection
+    "key": "ctrl+alt+E",
+    "command": "editor.action.insertSnippet",
+    "when": "editorLangId == latex && editorTextFocus",
+    "args": {
+      "snippet": "\\emph{${TM_SELECTED_TEXT}$0}"
+    }
+  }
+]
