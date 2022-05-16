@@ -89,7 +89,7 @@
       "-y=\"defaultIndent: '%INDENT%',onlyOneBackUp: 1\"",
     ],
     "latex-workshop.latex.bibDirs": [
-      "%DIR"
+      "%DIR%"
     ],
     "latex-workshop.latex.tools": [
       {
