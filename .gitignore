@@ -1,8 +1,11 @@
 # Ignore everything
 /*
+
 # Exceptions
 !.gitignore
 !LICENSE
 !README.md
 !.devcontainer/
 !.vscode/
+!build/main.pdf
+
