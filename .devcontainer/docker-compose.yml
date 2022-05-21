@@ -19,8 +19,10 @@ services:
     stdin_open: false
     tty: true
     working_dir: /home/latex/workspace
+    command: ["/bin/bash", "-c", "trap 'exit 0' TERM; sleep infinity & wait"]
     volumes:
       - ~/.Xauthority:/home/latex/.Xauthority:rw
       - ~/.ssh:/home/latex/.ssh
       - ~/.gitconfig:/home/latex/.gitconfig
+      - /etc/localtime:/etc/localtime:ro
       - ../:/home/latex/workspace
