@@ -52,7 +52,7 @@
     "latex-workshop.hover.command.enabled": true,
     "latex-workshop.latex.outDir": "build",
     "latex-workshop.synctex.afterBuild.enabled": true,
-    "latex-workshop.chktex.enabled": true,
+    "latex-workshop.linting.chktex.enabled": true,
     "latex-workshop.latex.clean.subfolder.enabled": false,
     "latex-workshop.latex.autoBuild.cleanAndRetry.enabled": false,
     "latex-workshop.latex.autoClean.run": "onBuilt",
