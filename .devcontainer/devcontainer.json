@@ -89,7 +89,7 @@
       "-y=\"defaultIndent: '%INDENT%',onlyOneBackUp: 1\"",
     ],
     "latex-workshop.latex.bibDirs": [
-      "%DIR"
+      "%DIR%"
     ],
     "latex-workshop.latex.tools": [
       {
@@ -144,7 +144,8 @@
           "pdflatex"
         ]
       }
-    ]
+    ],
+    "latex-workshop.latex.recipe.default": "latexmk 🔃"
   },
   // Start the VS Code instance in the container's workspace
   "workspaceFolder": "/home/latex/workspace",
