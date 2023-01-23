@@ -12,16 +12,13 @@
   // Stop container if VS Code is shut down
   "shutdownAction": "stopCompose",
   "extensions": [
-    "yzhang.markdown-all-in-one",
-    "gruntfuggly.todo-tree",
-    "eamodio.gitlens",
-    "davidanson.vscode-markdownlint",
     "aaron-bond.better-comments",
-    "jeff-hykin.better-syntax",
+    "eamodio.gitlens",
+    "github.copilot",
+    "hediet.vscode-drawio",
     "james-yu.latex-workshop",
     "shardulm94.trailing-spaces",
-    "vscode-icons-team.vscode-icons",
-    "hediet.vscode-drawio",
+    "vscode-icons-team.vscode-icons"
   ],
   "settings": {
     // Do not suggest words from written text (pretty annoying)
@@ -33,7 +30,7 @@
     "terminal.integrated.profiles.linux": {
       "zsh": {
         "path": "/bin/zsh"
-      },
+      }
     },
     // LaTeX Workshop
     "files.eol": "\n",
@@ -85,8 +82,7 @@
     "latex-workshop.latexindent.args": [
       "-c",
       "%DIR%/",
-      "%TMPFILE%",
-      "-y=\"defaultIndent: '%INDENT%',onlyOneBackUp: 1\"",
+      "%TMPFILE%"
     ],
     "latex-workshop.latex.bibDirs": [
       "%DIR%"

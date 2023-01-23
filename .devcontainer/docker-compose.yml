@@ -10,7 +10,6 @@ version: "3.9"
 services:
   latex-dev:
     image: intelligentsystemslabutv/latex-env:latest
-    network_mode: host
     environment:
       TERM: xterm-256color
       DISPLAY:
