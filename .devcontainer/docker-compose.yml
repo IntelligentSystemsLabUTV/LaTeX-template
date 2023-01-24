@@ -1,15 +1,33 @@
-# LaTeX environment container specification.
+# LaTeX environment containers specification.
 #
 # Alessandro Tenaglia <alessandro.tenaglia42@gmail.com>
 # Roberto Masocco <robmasocco@gmail.com>
 #
-# April 5, 2022
+# January 24, 2023
 
 version: "3.9"
 
 services:
-  latex-dev:
+  latex-env:
     image: intelligentsystemslabutv/latex-env:latest
+    environment:
+      TERM: xterm-256color
+      DISPLAY:
+      SHELL: /usr/bin/zsh
+    user: latex
+    stdin_open: false
+    tty: true
+    working_dir: /home/latex/workspace
+    command: ["/bin/bash", "-c", "trap 'exit 0' TERM; sleep infinity & wait"]
+    volumes:
+      - ~/.Xauthority:/home/latex/.Xauthority:rw
+      - ~/.ssh:/home/latex/.ssh
+      - ~/.gitconfig:/home/latex/.gitconfig
+      - /etc/localtime:/etc/localtime:ro
+      - ../:/home/latex/workspace
+
+  latex-dev:
+    image: intelligentsystemslabutv/latex-env:dev
     environment:
       TERM: xterm-256color
       DISPLAY:

@@ -1,13 +1,13 @@
 {
   // LaTeX environment
-  "name": "latex-dev",
+  "name": "latex-env",
   "dockerComposeFile": [
     "docker-compose.yml"
   ],
   // Only start this service
-  "service": "latex-dev",
+  "service": "latex-env",
   "runServices": [
-    "latex-dev"
+    "latex-env"
   ],
   // Stop container if VS Code is shut down
   "shutdownAction": "stopCompose",
