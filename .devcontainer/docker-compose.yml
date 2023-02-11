@@ -24,6 +24,7 @@ services:
       - ~/.ssh:/home/latex/.ssh
       - ~/.gitconfig:/home/latex/.gitconfig
       - /etc/localtime:/etc/localtime:ro
+      - /etc/timezone:/etc/timezone:ro
       - ../:/home/latex/workspace
 
   latex-dev:
@@ -42,4 +43,5 @@ services:
       - ~/.ssh:/home/latex/.ssh
       - ~/.gitconfig:/home/latex/.gitconfig
       - /etc/localtime:/etc/localtime:ro
+      - /etc/timezone:/etc/timezone:ro
       - ../:/home/latex/workspace
