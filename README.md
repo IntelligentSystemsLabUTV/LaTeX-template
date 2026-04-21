@@ -28,3 +28,11 @@ The rest of the job can be managed using the functionalities offered by [`LaTeX 
 By default, build files and output will be located in the `build` folder.
 
 All [`LaTeX Workshop`](https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshops) options can be configured in the `.devcontainer/devcontainer.json` file.
+
+---
+
+## Copyright and License
+
+Copyright 2026 Intelligent Systems Lab, Tor Vergata University of Rome.
+
+This software is provided as is, without any express or implied warranty. In no event shall the authors be liable for any claim, damages, or other liability, whether in an action of contract, tort, or otherwise, arising from, out of, or in connection with the software or the use or other dealings in the software.

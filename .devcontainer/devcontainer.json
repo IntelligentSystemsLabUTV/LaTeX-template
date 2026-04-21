@@ -2,7 +2,7 @@
   // LaTeX environment
   "name": "latex-env",
   "dockerComposeFile": [
-    "docker-compose.yml"
+    "docker-compose.yaml"
   ],
   // Only start this service
   "service": "latex-env",
@@ -21,6 +21,7 @@
         "hediet.vscode-drawio",
         "james-yu.latex-workshop",
         "shardulm94.trailing-spaces",
+        "streetsidesoftware.code-spell-checker",
         "vscode-icons-team.vscode-icons"
       ],
       "settings": {
